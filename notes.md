@@ -62,6 +62,7 @@ new URL(input, [base])
 *The URL class only works with absolute URLs — if you're using relative paths, you must pass a base.*
 
 **Query Parameters with searchParams**
+```
 const url = new URL('https://example.com/search?q=dogs&type=funny');
 
 console.log(url.searchParams.get('q'));     // 'dogs'
@@ -69,6 +70,7 @@ console.log(url.searchParams.get('type'));  // 'funny'
 
 url.searchParams.append('limit', '10');
 console.log(url.href);  // https://example.com/search?q=dogs&type=funny&limit=10
+```
 
 ### Event Emitter
 Node.js is event-driven, which means it can listen to and emit named events.
@@ -76,20 +78,39 @@ The EventEmitter class is at the core of this system. It allows you to:
 -Create custom events
 -Listen for those events
 -Trigger actions when they occur
-
+```
 const EventEmitter = require('events'); // CommonJS
 const myEmitter = new EventEmitter(); //creating instance
 myEmitter.on('eventName', (callback) => {
   console.log('Hello there!');
 });
 myEmitter.emit('greet'); //triggering the event
+```
 
 **.once() vs .on()**
+```
 myEmitter.once('launch', () => {
   console.log('Launching... only once');
 });
 
 myEmitter.emit('launch');
 myEmitter.emit('launch'); // Ignored
+```
 
 *You can even create custom classes that extend EventEmitter:*
+
+## EXPRESS JS
+### INTRODUCTION TO FRAMEWORK
+A framework is a pre-written, reusable structure of code that helps you build software faster and more efficiently.
+**Example**
+If you’re building a website:
+Library (e.g. React):
+-You say, “I want a button here,” so you write ```<Button />.```
+-You decide how routing, data fetching, styling all work.
+
+Framework (e.g. Next.js):
+-It says: “Put your pages in the pages/ folder, I’ll handle routing.”
+-It decides folder structure, SSR/SSG rules, build system.
+
+You still use React, but it controls the bigger picture.
+
