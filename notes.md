@@ -69,3 +69,27 @@ console.log(url.searchParams.get('type'));  // 'funny'
 
 url.searchParams.append('limit', '10');
 console.log(url.href);  // https://example.com/search?q=dogs&type=funny&limit=10
+
+### Event Emitter
+Node.js is event-driven, which means it can listen to and emit named events.
+The EventEmitter class is at the core of this system. It allows you to:
+-Create custom events
+-Listen for those events
+-Trigger actions when they occur
+
+const EventEmitter = require('events'); // CommonJS
+const myEmitter = new EventEmitter(); //creating instance
+myEmitter.on('eventName', (callback) => {
+  console.log('Hello there!');
+});
+myEmitter.emit('greet'); //triggering the event
+
+**.once() vs .on()**
+myEmitter.once('launch', () => {
+  console.log('Launching... only once');
+});
+
+myEmitter.emit('launch');
+myEmitter.emit('launch'); // Ignored
+
+*You can even create custom classes that extend EventEmitter:*
