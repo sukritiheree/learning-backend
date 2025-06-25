@@ -53,3 +53,19 @@ use script tag and give type as module
 
 ### FILE SYSTEM MODULE
 nested readfile and writefile functions can lead to call back hell, therefore we use promises
+
+### URL CLASS
+**URL Constructor**
+new URL(input, [base])
+-input → the full URL string or a relative path
+-base → (optional) base URL to resolve relative input
+*The URL class only works with absolute URLs — if you're using relative paths, you must pass a base.*
+
+**Query Parameters with searchParams**
+const url = new URL('https://example.com/search?q=dogs&type=funny');
+
+console.log(url.searchParams.get('q'));     // 'dogs'
+console.log(url.searchParams.get('type'));  // 'funny'
+
+url.searchParams.append('limit', '10');
+console.log(url.href);  // https://example.com/search?q=dogs&type=funny&limit=10
