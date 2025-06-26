@@ -14,8 +14,7 @@ It contains code snippets, notes, and examples that cover the foundational conce
 - Parsing URLs with the `URL` class
 - Creating and handling events using the `events` module
 - Initializing and managing Node projects with `npm`
-- Debugging Node.js code
-- Understanding core Node modules
+
 
 ---
 

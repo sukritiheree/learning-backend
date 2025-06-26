@@ -114,3 +114,43 @@ Framework (e.g. Next.js):
 
 You still use React, but it controls the bigger picture.
 
+### INTRODUCTION TO EXPRESS
+Express is a minimal and flexible backend framework for Node.js that makes it easier to handle routing, server setup, middleware, and more.
+
+```
+const PORT = process.env.PORT || 3000;
+```
+**Why not hardcode?**
+-some hosted environments (like Heroku, Vercel) force you to use a specific port.
+-process.env.PORT allows flexibility, fallback to 3000 locally.
+
+```
+app.get('/blog/:slug', (req,res))=>{
+  res.send("hello ${req.params.slug})
+}
+```
+:slug allows us to give any value to url parameters without having to change it repeatedly 
+just open the folder and in the url add /intro-to-hhii or anything this value after "/" will beecome the value of slug
+this slug object can be named anything and can be used multiple times
+
+**STATIC FILE**
+```
+app.use(express.static('public'))
+```
+it is a middleware used to make a file public
+
+**ROUTES**
+BASIC ROUTE STRUCTURE: app.METHOD(PATH, HANDLER)
+*Express matches routes in order — it stops at the first match.*
+The '*' route catches everything that didn’t match earlier routes.
+Think of it like a fallback or 404 route.
+
+**Sending Files Instead of Text**
+```
+const path = require('path');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+```
