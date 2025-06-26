@@ -154,3 +154,5 @@ app.get('/', (req, res) => {
 });
 
 ```
+
+get request has a limit therefore only queries with less characters can be sent using get request as that limit gets finished quickly, for detailed queries and sensitive data we use **post** request
