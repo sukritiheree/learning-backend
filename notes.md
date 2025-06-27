@@ -156,3 +156,20 @@ app.get('/', (req, res) => {
 ```
 
 get request has a limit therefore only queries with less characters can be sent using get request as that limit gets finished quickly, for detailed queries and sensitive data we use **post** request
+
+**What Is a Controller?**
+A controller is just a function that:
+-Handles the logic when a user visits a URL or sends a request.
+-Talks to the database (model).
+-Decides what to send back (HTML, JSON, error, redirect, etc).
+
+**What Is Middleware?**
+Middleware is a function that runs between the request and the response.
+You can use middleware to:
+-Check if a user is logged in
+-Log info about the request
+-Modify request or response
+-Stop the request and send an error
+-Or simply pass to the next function
+
+It always has (req, res, next) as arguments
