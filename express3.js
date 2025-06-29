@@ -4,7 +4,7 @@ const port = 3000
 //middleware1
 app.use((req, res, next)=> {
   
-//   res.send("middlewre1")
+//   res.send("middleware1")
   console.log(`${Date.now()} is a ${req.method}`)
   next()
 })

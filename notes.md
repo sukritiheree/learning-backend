@@ -173,3 +173,34 @@ You can use middleware to:
 -Or simply pass to the next function
 
 It always has (req, res, next) as arguments
+
+*order matters in middleware, the last middleware has higher priority incase query is getting overridden*
+
+**ERROR HANDLING**
+1. Try and catch
+```
+async function getAuthorById(req, res) {
+  try {
+    const author = await db.findAuthor(req.params.id);
+    if (!author) {
+      res.status(404).send("Author not found");
+      return;
+    }
+    res.send(author);
+  } catch (err) {
+    res.status(500).send("Server error");
+  }
+}
+```
+2. Using express async handler
+
+```
+const asyncHandler = require("express-async-handler");
+
+const getAuthorById = asyncHandler(async (req, res) => {
+  const author = await db.findAuthor(Number(req.params.id));
+  if (!author) throw new Error("Author not found");
+  res.send(author);
+});
+```
+We can also create *custom errors*
